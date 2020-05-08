@@ -88,6 +88,20 @@ public class SinglyLinkedListTest {
         sll.append(9);
         String s =sll.printall();
         Assert.assertEquals("9 Milan Bridgzlab 9 ",s);
-
     }
+
+    @Test
+    public void testIndexFeature() {
+        SinglyLinkedList sll= new SinglyLinkedList(9);
+        sll.add("Milan");
+        sll.append(9);
+        sll.append("Bridgzlab");
+        sll.append(9);
+        Assert.assertEquals("0,2,4,",sll.displayIndex(9));
+    }
+
+
+
+
+
 }

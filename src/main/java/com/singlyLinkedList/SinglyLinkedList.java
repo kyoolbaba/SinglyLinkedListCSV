@@ -22,7 +22,7 @@ public class SinglyLinkedList <E extends Comparable>{
         length++;
     }
 
-    public void add(E item){
+    public void append(E item){
         if (head==null){
             head=new Node(item);
             head.link=tail;
@@ -41,20 +41,21 @@ public class SinglyLinkedList <E extends Comparable>{
         }
     }
 
-    public void append(E item){
+    public void add(E item){
         if (head==null){
             head=new Node(item);
             head.link=tail;
             length++;
-        } else{
-            Node n = new Node(item);
-            Node n1=head;
-            while (n1.link!=null){
-                n1=n1.link;
-            }
-            n1.link=n;
+        }else if(this.search(item)){
+            this.deleteBySearch(item);
+        }
+        else{
+            Node newnode=new Node(item);;
+            newnode.link=head;
+            head=newnode;
             length++;
         }
+
     }
 
     public boolean search(E item){
@@ -105,4 +106,40 @@ public boolean isEmpty() {
         return s;
     }
 
-}
+    public int displayIndex(E item){
+        int index=1;
+        Node searchingNode=head;
+        while(searchingNode!=null){
+            if(searchingNode.item==item) {
+                break;
+            }
+            index++;
+            searchingNode=searchingNode.link;
+        }
+        return index;
+        }
+        public void addAtIndex(int position ,E item){
+            int index=0;
+            if(position==length){
+                this.append(item);
+            }else if(position==0){
+                this.add(item);
+            }
+            else{
+                Node insertingNode= head;
+                Node newnode=new Node(item);
+                while(insertingNode!=null){
+                    if(position-1==index){
+                       newnode.link=insertingNode.link;
+                        insertingNode.link=newnode;
+                        length++;
+                        break;
+                    }
+                    insertingNode=insertingNode.link;
+                    index++;
+                }
+            }
+        }
+
+    }
+
