@@ -70,6 +70,10 @@ public void deleteBySearch(E item){
         }
 }
 
+public boolean isEmpty() {
+        return length==0;
+}
+
     public String printall(){
         String s="";
         Node printingNode=head;
