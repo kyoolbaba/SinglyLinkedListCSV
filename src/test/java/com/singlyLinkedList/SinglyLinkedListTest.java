@@ -63,4 +63,31 @@ public class SinglyLinkedListTest {
         SinglyLinkedList sll= new SinglyLinkedList(9);
         Assert.assertFalse(sll.isEmpty());
     }
+
+    @Test
+    public void checkSizePositiveTesting() {
+        SinglyLinkedList sll= new SinglyLinkedList(9);
+        sll.add("Milan");
+        sll.add("Bridgzlab");
+        Assert.assertEquals(3,sll.size());
+    }
+
+    @Test
+    public void checkSizeNegativeTesting() {
+        SinglyLinkedList sll= new SinglyLinkedList(9);
+        sll.add("Milan");
+        sll.add("Bridgzlab");
+        Assert.assertFalse(4==sll.size());
+    }
+
+    @Test
+    public void testingAppendFeature() {
+        SinglyLinkedList sll= new SinglyLinkedList(9);
+        sll.add("Milan");
+        sll.append("Bridgzlab");
+        sll.append(9);
+        String s =sll.printall();
+        Assert.assertEquals("9 Milan Bridgzlab 9 ",s);
+
+    }
 }

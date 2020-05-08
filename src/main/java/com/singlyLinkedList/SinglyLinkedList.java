@@ -41,6 +41,22 @@ public class SinglyLinkedList <E extends Comparable>{
         }
     }
 
+    public void append(E item){
+        if (head==null){
+            head=new Node(item);
+            head.link=tail;
+            length++;
+        } else{
+            Node n = new Node(item);
+            Node n1=head;
+            while (n1.link!=null){
+                n1=n1.link;
+            }
+            n1.link=n;
+            length++;
+        }
+    }
+
     public boolean search(E item){
         boolean isPresent=false;
         Node searchingNode=head;
@@ -69,6 +85,11 @@ public void deleteBySearch(E item){
             }
         }
 }
+
+public int size(){
+        return length;
+}
+
 
 public boolean isEmpty() {
         return length==0;
