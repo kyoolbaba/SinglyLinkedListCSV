@@ -96,14 +96,15 @@ public boolean isEmpty() {
         return length==0;
 }
 
-    public String printall(){
+    public E printall(){
         String s="";
         Node printingNode=head;
         while(printingNode!=null){
             s+=printingNode.item+" ";
             printingNode=printingNode.link;
         }
-        return s;
+        E value=(E)s;
+        return value;
     }
 
     public int displayIndex(E item){
@@ -140,6 +141,52 @@ public boolean isEmpty() {
                 }
             }
         }
+    public E pop(){
+        E value;
+        Node deleteLastNode=head;
+        if(!isEmpty()){
+            if(length==1){
+                value=(E)head.item;
+                head=null;
+            }
+            else{
+                int index=0;
+                while(deleteLastNode.link.link!=null){
+                    deleteLastNode=deleteLastNode.link;
+                }
+                value= (E)deleteLastNode.link.item;
+                deleteLastNode.link=null;
+            }
+            length--;
+            return value;
+
+        }else{
+            length=0;
+            return null;
+        }
+
+    }
+    public void popAtIndex(int position){
+        if(!isEmpty()){
+        if(position==0){
+            head=head.link;
+        }else if(position==length-1){
+            this.pop();
+        }else{
+            int index=0;
+            Node deleteAtNode=head;
+            while(deleteAtNode.link!=null){
+                if(index==position-1){
+                    deleteAtNode.link=deleteAtNode.link.link;
+                }
+                index++;
+                deleteAtNode=deleteAtNode.link;
+            }
+        }
+        length--;
+        }
+
+    }
 
     }
 
