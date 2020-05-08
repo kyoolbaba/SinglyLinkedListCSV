@@ -17,9 +17,9 @@ public class SinglyLinkedList <E extends Comparable>{
     public SinglyLinkedList(){}
 
     public  SinglyLinkedList(E item){
-    head=new Node(item);
-    head.link=tail;
-    length++;
+        head=new Node(item);
+        head.link=tail;
+        length++;
     }
 
     public void add(E item){
@@ -58,14 +58,14 @@ public void deleteBySearch(E item){
         if(head.item==item){
             head=head.link;
         }else{
-    Node searchingNode=head;
-    while(searchingNode!=null){
-        if(searchingNode.link.item==item) {
-            searchingNode.link=searchingNode.link.link;
-            length--;
-            break;
-        }
-        searchingNode=searchingNode.link;
+             Node searchingNode=head;
+            while(searchingNode!=null){
+                if(searchingNode.link.item==item) {
+                     searchingNode.link=searchingNode.link.link;
+                     length--;
+                    break;
+                }
+             searchingNode=searchingNode.link;
             }
         }
 }
@@ -77,7 +77,7 @@ public void deleteBySearch(E item){
             s+=printingNode.item+" ";
             printingNode=printingNode.link;
         }
-    return s;
+        return s;
     }
 
 }
