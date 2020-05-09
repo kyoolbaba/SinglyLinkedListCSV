@@ -107,6 +107,25 @@ public boolean isEmpty() {
         return value;
     }
 
+    public E getElement(int position){
+        E element = null;
+        if(position==0){
+            element=(E)head.item;
+        }else{
+            int index=0;
+            Node elementAtIndex=head;
+            while(elementAtIndex.item!=null){
+                if(index==position){
+                    element=(E)elementAtIndex.item;
+                    break;
+                }
+                index++;
+                elementAtIndex=elementAtIndex.link;
+            }
+        }
+        return element;
+    }
+
     public int displayIndex(E item){
         int index=1;
         Node searchingNode=head;
